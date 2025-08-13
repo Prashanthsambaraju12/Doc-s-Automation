@@ -1,0 +1,393 @@
+{
+    "name": "Integration Google Sheets, PandaDoc, Email, Slack",
+    "flow": [
+        {
+            "id": 1,
+            "module": "google-sheets:watchRows",
+            "version": 2,
+            "parameters": {
+                "__IMTCONN__": 9082701,
+                "mode": "map",
+                "includesHeaders": true,
+                "limit": 2,
+                "valueRenderOption": "FORMATTED_VALUE",
+                "dateTimeRenderOption": "FORMATTED_STRING",
+                "spreadsheetId": "1Nd48RGJtSDHLCxsz16UXxB1W5NzOe5kF_Kil6o13ueM",
+                "sheetId": "sheet1",
+                "tableFirstRow": "A1:Z1"
+            },
+            "mapper": {},
+            "metadata": {
+                "designer": {
+                    "x": 0,
+                    "y": 150
+                },
+                "restore": {
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "label": "My Google connection (prashanthsambharaju2988@gmail.com)",
+                            "data": {
+                                "scoped": "true",
+                                "connection": "google"
+                            }
+                        },
+                        "mode": {
+                            "label": "Enter manually"
+                        },
+                        "includesHeaders": {
+                            "label": "Yes"
+                        },
+                        "valueRenderOption": {
+                            "mode": "chose",
+                            "label": "Formatted value"
+                        },
+                        "dateTimeRenderOption": {
+                            "mode": "chose",
+                            "label": "Formatted string"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:google",
+                        "label": "Connection",
+                        "required": true
+                    },
+                    {
+                        "name": "mode",
+                        "type": "select",
+                        "label": "Search Method",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "select",
+                                "fromAll",
+                                "map"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "includesHeaders",
+                        "type": "select",
+                        "label": "Table contains headers",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                true,
+                                false
+                            ]
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "type": "uinteger",
+                        "label": "Limit",
+                        "required": true
+                    },
+                    {
+                        "name": "valueRenderOption",
+                        "type": "select",
+                        "label": "Value render option",
+                        "validate": {
+                            "enum": [
+                                "FORMATTED_VALUE",
+                                "UNFORMATTED_VALUE",
+                                "FORMULA"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "dateTimeRenderOption",
+                        "type": "select",
+                        "label": "Date and time render option",
+                        "validate": {
+                            "enum": [
+                                "SERIAL_NUMBER",
+                                "FORMATTED_STRING"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "spreadsheetId",
+                        "type": "text",
+                        "label": "Spreadsheet ID",
+                        "required": true
+                    },
+                    {
+                        "name": "sheetId",
+                        "type": "text",
+                        "label": "Sheet Name",
+                        "required": true
+                    },
+                    {
+                        "name": "tableFirstRow",
+                        "type": "text",
+                        "label": "Row with headers",
+                        "required": true
+                    }
+                ],
+                "interface": [
+                    {
+                        "name": "__ROW_NUMBER__",
+                        "label": "Row number",
+                        "type": "number"
+                    },
+                    {
+                        "name": "__SPREADSHEET_ID__",
+                        "label": "Spreadsheet ID",
+                        "type": "text"
+                    },
+                    {
+                        "name": "__SHEET__",
+                        "label": "Sheet",
+                        "type": "text"
+                    },
+                    {
+                        "name": "0",
+                        "label": "(A)",
+                        "type": "text"
+                    },
+                    {
+                        "name": "1",
+                        "label": "General Business metrics (B)",
+                        "type": "text"
+                    },
+                    {
+                        "name": "2",
+                        "label": "Sales and revune (C)",
+                        "type": "text"
+                    },
+                    {
+                        "name": "3",
+                        "label": "Inventory and supply chain (D)",
+                        "type": "text"
+                    },
+                    {
+                        "name": "4",
+                        "label": "HR & Productivity (E)",
+                        "type": "text"
+                    },
+                    {
+                        "name": "5",
+                        "label": "Project Management (F)",
+                        "type": "text"
+                    },
+                    {
+                        "name": "6",
+                        "label": "Finance (G)",
+                        "type": "text"
+                    },
+                    {
+                        "name": "7",
+                        "label": "Marketing Analytics (H)",
+                        "type": "text"
+                    },
+                    {
+                        "name": "8",
+                        "label": "Customer Support (I)",
+                        "type": "text"
+                    },
+                    {
+                        "name": "9",
+                        "label": "Website/App Data (J)",
+                        "type": "text"
+                    },
+                    {
+                        "name": "10",
+                        "label": "(K)",
+                        "type": "text"
+                    },
+                    {
+                        "name": "11",
+                        "label": "(L)",
+                        "type": "text"
+                    },
+                    {
+                        "name": "12",
+                        "label": "(M)",
+                        "type": "text"
+                    },
+                    {
+                        "name": "13",
+                        "label": "(N)",
+                        "type": "text"
+                    },
+                    {
+                        "name": "14",
+                        "label": "(O)",
+                        "type": "text"
+                    },
+                    {
+                        "name": "15",
+                        "label": "(P)",
+                        "type": "text"
+                    },
+                    {
+                        "name": "16",
+                        "label": "(Q)",
+                        "type": "text"
+                    },
+                    {
+                        "name": "17",
+                        "label": "(R)",
+                        "type": "text"
+                    },
+                    {
+                        "name": "18",
+                        "label": "(S)",
+                        "type": "text"
+                    },
+                    {
+                        "name": "19",
+                        "label": "(T)",
+                        "type": "text"
+                    },
+                    {
+                        "name": "20",
+                        "label": "(U)",
+                        "type": "text"
+                    },
+                    {
+                        "name": "21",
+                        "label": "(V)",
+                        "type": "text"
+                    },
+                    {
+                        "name": "22",
+                        "label": "(W)",
+                        "type": "text"
+                    },
+                    {
+                        "name": "23",
+                        "label": "(X)",
+                        "type": "text"
+                    },
+                    {
+                        "name": "24",
+                        "label": "(Y)",
+                        "type": "text"
+                    },
+                    {
+                        "name": "25",
+                        "label": "(Z)",
+                        "type": "text"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 2,
+            "module": "pandadoc:createADocuments",
+            "version": 1,
+            "metadata": {
+                "designer": {
+                    "x": 300,
+                    "y": 150,
+                    "messages": [
+                        {
+                            "category": "setup",
+                            "severity": "error",
+                            "message": "Value must not be empty."
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": 3,
+            "module": "email:ActionSendEmail",
+            "version": 7,
+            "metadata": {
+                "designer": {
+                    "x": 600,
+                    "y": 150,
+                    "messages": [
+                        {
+                            "category": "setup",
+                            "severity": "error",
+                            "message": "Value must not be empty."
+                        },
+                        {
+                            "category": "setup",
+                            "severity": "error",
+                            "message": "Field must not be empty."
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": 4,
+            "module": "builtin:BasicRouter",
+            "version": 1,
+            "mapper": null,
+            "metadata": {
+                "designer": {
+                    "x": 900,
+                    "y": 150
+                }
+            },
+            "routes": [
+                {
+                    "flow": [
+                        {
+                            "id": 5,
+                            "module": "google-sheets:updateRow",
+                            "version": 2,
+                            "metadata": {
+                                "designer": {
+                                    "x": 1200,
+                                    "y": 0
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "flow": [
+                        {
+                            "id": 6,
+                            "module": "slack:CreateMessage",
+                            "version": 4,
+                            "metadata": {
+                                "designer": {
+                                    "x": 1200,
+                                    "y": 300,
+                                    "messages": [
+                                        {
+                                            "category": "setup",
+                                            "severity": "error",
+                                            "message": "Value must not be empty."
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "metadata": {
+        "instant": false,
+        "version": 1,
+        "scenario": {
+            "roundtrips": 1,
+            "maxErrors": 3,
+            "autoCommit": true,
+            "autoCommitTriggerLast": true,
+            "sequential": false,
+            "slots": null,
+            "confidential": false,
+            "dataloss": false,
+            "dlq": false,
+            "freshVariables": false
+        },
+        "designer": {
+            "orphans": []
+        },
+        "zone": "eu2.make.com",
+        "notes": []
+    }
+}
